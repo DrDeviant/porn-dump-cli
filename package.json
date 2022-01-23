@@ -1,0 +1,13 @@
+{
+  "name": "porn-dump-cli",
+  "description": "",
+  "version": "1.0.0",
+  "author": {
+    "name": "DgSe95"
+  },
+  "dependencies": {
+    "puppeteer": "^13.1.1",
+    "yargs": "^17.3.1"
+  },
+  "private": true
+}
