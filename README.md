@@ -42,13 +42,13 @@ Here is the list of supported platforms and future ones:
 
 What it can do:
 
-* Make screenshots of the user/model page ([source](cli.js#L1147)):
+* Make screenshots of the user/model page ([source](cli.js#L1139)):
 
   ```js
   await makeScreenshot(page, parsedModelName);
   ```
 
-* Dump several details from the discovered API ([source](cli.js#L1153)):
+* Dump several details from the discovered API ([source](cli.js#L1147)):
 
   ```js
   // Dump stream settings from JSON
@@ -75,20 +75,20 @@ What it can do:
   await dumpJSON(dumpOnlineModelsURL(), `${outputDir}/online-models.json`);
   ```
 
-* Replay the user/model stream only ([source](cli.js#L1192)):
+* Replay the user/model stream only ([source](cli.js#L1184)):
 
   ```js
   await playStream(streamURL);
   ```
 
-* Record the user/model stream only ([source](cli.js#L1195)):
+* Record the user/model stream only ([source](cli.js#L1189)):
 
   ```js
   await recordStreamMP4(streamURL, parsedModelName);
   await recordStreamMKV(streamURL, parsedModelName);
   ```
 
-* Record and replay the user/model stream ([source](cli.js#L1209)):
+* Record and replay the user/model stream ([source](cli.js#L1203)):
 
   ```js
   await recordAndPlayStreamMP4(streamURL, parsedModelName);
