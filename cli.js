@@ -15,8 +15,7 @@ const { hideBin } = require('yargs/helpers');
 // Used 'pirate' locale translator:
 // - https://lingojam.com/PirateSpeak
 const argv = yargs(hideBin(process.argv))
-        // .usage('\nAdult streaming websites data dumper / recorder [WiP]\n\nUsage: $0 <command> [options]\n\nSupported: stripchat\nPlanned: xhamster, chaturbate, cam4')
-        .usage('\nAdult streaming websites data dumper / recorder [WiP]\n\nUsage: $0 <options>\n\nSupported: stripchat\nPlanned: xhamster, chaturbate, cam4')
+        .usage('\nAdult streaming websites data dumper / recorder [WiP]\n\nUsage: $0 <options>\n\nSupported: stripchat, xhamsterlive, mycamtv\nPlanned: chaturbate, cam4 and many more!')
         .group(['url', 'screenshot', 'remote', 'remote-api-key'], 'Analyze:')
         .group(['da', 'dc', 'ds', 'dmi', 'dhm', 'dom'], 'Dump:')
         .group(['play', 'record', 'preview', 'record-time', 'keep-recording', 'stop-recording-on-close', 'hwaccel', 'vaapi', 'nvidia'], 'Record an\' play:')
@@ -525,10 +524,11 @@ async function playStream(streamURL) {
   console.log(`\n[${thisFile}] Playing stream [${streamURL}]...\n`);
 
   let ffplay;
-  if (useHardwareAccel === true && useVAAPI === true) {
-    ffplay = spawn('ffplay', ['-hide_banner', '-i', streamURL]);
-  }
-  else if (useHardwareAccel === true && useNVENC === true) {
+
+  // Only NVDIA hardware accel is possible with `ffplay`
+  // It will not fail if '--hwaccel --vaapi' is given but not really supported
+  // But simply let `ffplay` decide what decoder to use
+  if (useHardwareAccel === true && useNVENC === true) {
     ffplay = spawn('ffplay', ['-hide_banner', '-vcodec', 'h264_cuvid', '-i', streamURL]);
   }
   else {
@@ -769,10 +769,7 @@ async function recordAndPlayStreamMP4(streamURL, modelName) {
   }
 
   let ffplay;
-  if (useHardwareAccel === true && useVAAPI === true) {
-    ffplay = spawn('ffplay', ['-hide_banner', 'pipe:']);
-  }
-  else if (useHardwareAccel === true && useNVENC === true) {
+  if (useHardwareAccel === true && useNVENC === true) {
     ffplay = spawn('ffplay', ['-hide_banner', '-vcodec', 'h264_cuvid', 'pipe:']);
   }
   else {
@@ -928,10 +925,7 @@ async function recordAndPlayStreamMKV(streamURL, modelName) {
   }
 
   let ffplay;
-  if (useHardwareAccel === true && useVAAPI === true) {
-    ffplay = spawn('ffplay', ['-hide_banner', 'pipe:']);
-  }
-  else if (useHardwareAccel === true && useNVENC === true) {
+  if (useHardwareAccel === true && useNVENC === true) {
     ffplay = spawn('ffplay', ['-hide_banner', '-vcodec', 'h264_cuvid', 'pipe:']);
   }
   else {
@@ -1108,7 +1102,6 @@ parseArgs();
       console.log(`==> Model Name: ${parsedModelName}`);
       console.log(`==> Dumped URLs: ${dumpedURLs.length}`);
       console.log(` - ${dumpedURLs.join('\n - ')}`);
-      // console.log(`==> Last URL: ${dumpedURLs[(dumpedURLs.length-1)]}`);
       console.log(`==> Processed URLs:`);
       console.log(` - Stream URL: ${dumpStreamURL()}`);
       console.log(` - Stream Settings URL: ${dumpStreamSettingsURL(parsedModelName)}`);
