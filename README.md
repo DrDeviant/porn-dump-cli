@@ -158,6 +158,12 @@ What it can do:
   ./cli.js --url https://stripchat.com/model-name --record --record-time 10 --preview --stop-recording-on-close
   ```
 
+* To dump known `JSON` data only:
+
+  ```
+  ./cli.js --url https://stripchat.com/model-name --dump-all
+  ```
+
 * To dump and record everything possible:
 
   ```
