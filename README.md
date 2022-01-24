@@ -204,7 +204,7 @@ By default, the `mp4` format will be used but you can also use the `mkv` format 
 
 ### Hardware acceleration
 
-Some user/models are using HD cams in 720p or 1080p, this might be very demanding for your CPU and in this case you would need help from your GPU.
+Some user/models are using HD cams in 720p or 1080p, this might be very demanding for your CPU and in this case you would need some help from your GPU.
 
 Two hardware acceleration types are supported for now:
 
