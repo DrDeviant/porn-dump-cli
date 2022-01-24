@@ -2,6 +2,14 @@
 
 Stream capture / data dump CLI for biggest adult streaming platforms to prove their lack of security and privacy concerns.
 
+> This project is still mainly a `WIP` so many things might change in the future.
+
+## Origins
+
+Originaly made because a simple `PoC` would never cause real security issues for big companies behind the biggest adult streaming platforms... I wanted to make something a little more powerfull and better structured.
+
+So, here comes __porn-dump-cli__. It takes its origines from [stream-capture-poc](https://github.com/DgSe95/stream-capture-poc).
+
 ## Install
 
 Simply run the following commands:
@@ -21,6 +29,14 @@ sudo yum install ffmpeg
 # Ubuntu based distribs
 sudo apt install ffmpeg
 ```
+
+## Supported platforms
+
+Here is the list of supported platforms and future ones:
+
+* [X] Stripchat and their _white label_ websites (e.g. xHamsterLive, MyCamTV, and so on...)
+* [ ] Chaturbate
+* [ ] Cam4
 
 ## Features
 
