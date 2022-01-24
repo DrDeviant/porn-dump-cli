@@ -104,8 +104,8 @@ What it can do:
 
   Usage: cli.js <options>
 
-  Supported: stripchat
-  Planned: xhamster, chaturbate, cam4
+  Supported: stripchat, xhamsterlive, mycamtv
+  Planned: chaturbate, cam4 and many more!
 
   Analyze:
     -u, --url             The URL to look fer                                            [string] [requi-yar-ed]
